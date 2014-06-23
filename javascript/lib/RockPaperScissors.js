@@ -1,9 +1,24 @@
 pairs = {
-	"rock": { "beats": ["scissors", "lizard"]},
-	"paper": { "beats": ["rock", "spock"] },
-	"scissors": { "beats": ["paper", "lizard"] },
-	"lizard": {"beats": ["paper", "spock"]},
-	"spock": {"beats": ["scissors", "rock"]}
+	"rock": { 
+		"scissors": "crushes", 
+		"lizard": "crushes" 
+	},
+	"paper": { 
+		"rock": "covers", 
+		"spock": "disproves"
+	},
+	"scissors": { 
+		"paper": "cuts", 
+		"lizard": "decapitates"
+	},
+	"lizard": {
+		"paper": "eats",
+		"spock": "poisons"
+	},
+	"spock": {
+		"scissors": "smashes", 
+		"rock": "vaporizes",
+	}
 }
 
 function Player(name) {
@@ -27,12 +42,20 @@ Game.prototype.winner = function() {
 	if (this.samePick() === true) {
 		return null;
 	}
-	else if (pairs[this.player1.pick]["beats"].indexOf(this.player2.pick) > -1) {
+	else if(pairs[this.player1.pick][this.player2.pick]) {
 		return this.player1;
 	}
 	else {
 		return this.player2;
 	}
+};
+
+Game.prototype.loser = function() {
+	return (this.winner() === this.player1) ? this.player2 : this.player1
+};
+
+Game.prototype.announcement = function() {
+	return this.winner.name + "'s " + this.winner.pick + " " + pairs[this.winner.pick][this.loser.pick] + " " + this.loser.name + "'s " + this.loser.pick
 };
 
 

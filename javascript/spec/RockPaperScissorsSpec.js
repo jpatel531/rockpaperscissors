@@ -16,6 +16,7 @@ describe("Rock-Paper-Scissors", function() {
         player1.picks('rock');
         player2.picks('scissors');
         expect(game.winner()).toBe(player1);
+        expect(game.loser()).toBe(player2);
       });
 
       it('should lose to paper', function() {
@@ -161,6 +162,18 @@ describe("Rock-Paper-Scissors", function() {
       });
 
     });
+
+  });
+
+  describe('the winner announcement', function() {
+
+    it('rock vs. scissors: crush', function() {
+        player1.picks('rock');
+        player2.picks('scissors');
+        expect(game.announcement()).toEqual("Alex's rock crushes Bob's scissors");
+
+    });
+
 
   });
 
