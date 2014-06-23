@@ -1,7 +1,9 @@
 pairs = {
-	"rock": { "beats": "scissors"},
-	"paper": { "beats": "rock" },
-	"scissors": { "beats": "paper" }
+	"rock": { "beats": ["scissors", "lizard"]},
+	"paper": { "beats": ["rock", "spock"] },
+	"scissors": { "beats": ["paper", "lizard"] },
+	"lizard": {"beats": ["paper", "spock"]},
+	"spock": {"beats": ["scissors", "rock"]}
 }
 
 function Player(name) {
@@ -25,7 +27,7 @@ Game.prototype.winner = function() {
 	if (this.samePick() === true) {
 		return null;
 	}
-	else if (pairs[this.player1.pick]["beats"] === this.player2.pick) {
+	else if (pairs[this.player1.pick]["beats"].indexOf(this.player2.pick) > -1) {
 		return this.player1;
 	}
 	else {
