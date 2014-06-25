@@ -34,14 +34,12 @@ function Game(player1, player2) {
   this.player2 = player2;
 };
 
-Game.prototype.isSamePick = function() {
+Game.prototype._isSamePick = function() {
 	return this.player1.pick === this.player2.pick;
 };
 
 Game.prototype.winner = function() {
-	if (this.isSamePick() === true) {
-		return null;
-	}
+	if(this._isSamePick()) return null;
 	else if(pairs[this.player1.pick][this.player2.pick]) {
 		return this.player1;
 	}

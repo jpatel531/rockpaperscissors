@@ -6,26 +6,33 @@
 
 <body>
 
-<div class="section group">
+<div class="choices">
 	<div class="col rock span_1_of_3" data-pick="rock">
    	<img src="images/rock.gif">
    </div>
+
 	<div class="col paper span_1_of_3" data-pick="paper">
- <img class="crop" src="images/paper.jpg">
+ 			<img class="crop" src="images/paper.jpg">
 	</div>
+
 	<div class="col scissors span_1_of_3" data-pick="scissors">
     <img src="images/scissors.jpg">
-	</div><div class="col lizard span_1_of_3" data-pick="lizard">
-<img class="crop" src="images/lizard.jpg">
-</div>
-<div class="col spock span_1_of_3" data-pick="spock">
- <img class="crop" src="images/spock.jpg"></div>
+	</div>
 
+	<div class="col lizard span_1_of_3" data-pick="lizard">
+		<img class="crop" src="images/lizard.jpg">
+	</div>
+
+	<div class="col spock span_1_of_3" data-pick="spock">
+ 		<img class="crop" src="images/spock.jpg">
+	</div>
 </div>
+
+<ul id="results"> </ul>
 
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"> </script>
 <script type="text/javascript" src="scripts/RockPaperScissors.js"> </script>
-<script
+<script>
 	$(document).ready(function(){
 		var p1 = new Player('Jamie');
 		var p2 = new Player('John');
@@ -34,8 +41,11 @@
 		$('.col').on('click', function(){
 			p1.picks($(this).data('pick'));
 			p2.picks('rock');
-		})
-	})
+			$('<li>' + game.announcement() + '</li>').prependTo('#results').slideDown();
+		});
 
+	});
+</script>
 
-</body></html>
+</body>
+</html>
