@@ -1,0 +1,130 @@
+body {
+	font-family: 'Maven Pro', sans-serif;
+	background: white;
+	margin: 0 0 0 0;
+	padding:0 0 0 0;
+}
+
+h1 {
+	text-align: center;
+	font-size: 7vh;
+	opacity: 1;
+	color: white;
+}
+
+
+
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+	display: flex;
+	flex-direction: row;
+	width: 16.6666666667vw;
+	background-color: black;
+	color: grey;
+	float:left;
+	margin: 0% 0% 0% 0%;
+}
+
+.col:hover {
+	opacity: 0.6;
+}
+
+.col div {
+	opacity: 1
+}
+
+.col.rock:hover {
+	background-color: #614126;
+}
+
+.col.paper:hover {
+	background: yellow;
+}
+
+.col.scissors:hover {
+	background: silver;
+}
+
+.col.lizard:hover {
+	background: orange;
+}
+
+.col.spock:hover {
+	background: blue;
+}
+
+.col img {
+	align-self: center;
+	opacity: 1;
+	max-width: 100%;
+	border-radius: 100%;
+}
+
+img:before {
+	content: "";
+	display: block;
+	padding-top: 100%;
+}
+
+
+	
+
+.col:first-child { margin-left: 0; }
+
+
+	/*  GROUPING  */
+	.group:before,
+	.group:after {
+		content:"";
+		display:table;
+	}
+	.group:after {
+		clear:both;
+	}
+	.group {
+		zoom:1; /* For IE 6/7 */
+	}
+
+	/*  GRID OF THREE  */
+	.span_3_of_3 {
+		width: 90%;
+		height: 20%;
+	}
+	.span_2_of_3 {
+		width: 50%;
+		height: 100%;
+	}
+	.span_1_of_3 {
+		width: 20%;
+		height: 100%
+	}
+
+	 GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+	@media only screen and (max-width: 480px) {
+		.col { 
+			margin: 0% 0% 0% 0%;
+			height: 16.6666666667vH;
+		}
+		
+		
+	}
+
+	@media only screen and (max-width: 480px) {
+		.span_3_of_3 {
+			width: 100%; 
+		}
+		.span_2_of_3 {
+			width: 100%; 
+		}
+		.span_1_of_3 {
+			width: 100%;
+		}
+	}
